@@ -1,2 +1,4 @@
 django
 pytest
+python-decouple
+psycopg2
