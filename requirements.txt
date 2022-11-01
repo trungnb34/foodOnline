@@ -1,4 +1,6 @@
 django
 pytest
 python-decouple
-psycopg2
+#psycopg2
+psycopg2>=2.8
+Pillow

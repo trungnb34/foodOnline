@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+    environment:
+      POSTGRES_DATABASE: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123456a@
+  db:
+    image: postgres:13
+    volumes:
+      - /home/mrtrung/data/db:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DATABASE: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123456a@
+      POSTGRES_ROOT_PASSWORD: postgres12345678a@
+volumes:
+  postgres_data:
