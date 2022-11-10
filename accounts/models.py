@@ -38,6 +38,9 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     
+    RESTRAURANT = 1
+    CUSTOMER = 2
+    
     ROLE_CHOICE = (
         (1 , "Restaurant"),
         (2, "Customer")

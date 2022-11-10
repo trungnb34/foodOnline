@@ -68,11 +68,24 @@
                                     </div>
                                 </form>
                             </div>
-                            {{ form.errors }}
                             <div id="signup_box" class="tab-pane fade in active">
                                 <div class="scetion-title">
                                     <h2>Sign Up</h2>
                                 </div>
+                                <ul class="errorlist">
+                                    {% for fields in errors %}
+                                        {% for mess in fields %}
+                                            <li style="color: red;">{{ mess }}</li>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ul>
+                                {% if messages %}
+                                    <div class="alert alert-success" role="alert">
+                                        {% for message in messages %}
+                                            {{ message }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
                                 <div class="input-info">
                                     <div class="row">
                                         <form action="{% url 'register_user' %}" method="POST" class="wp-user-form webkit">
